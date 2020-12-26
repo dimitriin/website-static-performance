@@ -1,0 +1,25 @@
+@startuml
+!include <cloudinsight/kafka>
+!include <cloudinsight/hdfs>
+!include <cloudinsight/desktop>
+
+actor user
+queue "<$kafka>" as kafka
+database clickhouse
+database "<$hdfs>" as hdfs
+circle http
+
+[<$desktop>] -> http
+http - [http kafka connector]
+[http kafka connector] -> [kafka]
+[kafka] -> [multiplex data]
+[multiplex data] -right-> [hdfs]
+[multiplex data] -down-> [enrich data]
+[enrich data] <-left-> [geo ip service]
+[enrich data] <-right-> [ua parse service]
+[enrich data] -down-> [clickhouse]
+[enrich data] -down-> [hdfs]
+[spark] -up-> hdfs
+[user] -up-> [clickhouse]
+[user] -up-> [spark]
+@enduml
