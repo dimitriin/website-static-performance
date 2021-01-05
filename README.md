@@ -16,6 +16,9 @@ res = performance.getEntriesByType("resource"); res[0];
 PerformanceResourceTiming {initiatorType: "link", nextHopProtocol: "h3-29", workerStart: 855.2349999990838, redirectStart: 0, redirectEnd: 0, …}
 ```
 
+Подробнее [тут](https://blog.logrocket.com/how-to-practically-use-performance-api-to-measure-performance/
+).
+
 [Получение информации по качеству соединения](https://usefulangle.com/post/171/javascript-get-network-information)
 ```
 navigator.connection
