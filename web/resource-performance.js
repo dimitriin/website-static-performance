@@ -14,6 +14,7 @@ window.addEventListener('load', function () {
                 "clientIP": clientIP,
                 "resourceName": resource.name,
                 "resourceDuration": resource.duration,
+                "resourceTransferSize": resource.transferSize,
                 "connectionType": navigator.connection.effectiveType,
                 "connectionDownlinkMax": navigator.connection.downlink,
             });

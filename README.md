@@ -16,7 +16,7 @@ res = performance.getEntriesByType("resource"); res[0];
 PerformanceResourceTiming {initiatorType: "link", nextHopProtocol: "h3-29", workerStart: 855.2349999990838, redirectStart: 0, redirectEnd: 0, …}
 ```
 
-Подробнее [тут](https://blog.logrocket.com/how-to-practically-use-performance-api-to-measure-performance/
+Подробнее [тут](https://blog.logrocket.com/how-to-practically-use-performance-api-to-measure-performance/ и [тут](https://developer.mozilla.org/en-US/docs/Web/API/Resource_Timing_API/Using_the_Resource_Timing_API).
 ).
 
 [Получение информации по качеству соединения](https://usefulangle.com/post/171/javascript-get-network-information)

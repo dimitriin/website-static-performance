@@ -5,7 +5,7 @@
     "pipelineId" : "websitestaticperformance5fd11967-3e69-45df-afc1-7f51c1dc6d31",
     "title" : "website-static-performance",
     "description" : "",
-    "uuid" : "d85e6c82-ae62-4232-a75e-b1f6310449ba",
+    "uuid" : "57895a87-f758-4018-afb1-fcf5ebfe3b76",
     "configuration" : [ {
       "name" : "executionMode",
       "value" : "STANDALONE"
@@ -372,7 +372,7 @@
         "value" : "INLINE"
       }, {
         "name" : "conf.dataFormatConfig.avroSchema",
-        "value" : "{\n    \"namespace\": \"io.divolte.record\",\n    \"type\": \"record\",\n    \"name\": \"DefaultEventRecord\",\n    \"fields\": [\n        { \"name\": \"detectedDuplicate\",       \"type\": \"boolean\" },\n        { \"name\": \"detectedCorruption\",      \"type\": \"boolean\" },\n        { \"name\": \"firstInSession\",          \"type\": \"boolean\" },\n        { \"name\": \"timestamp\",               \"type\": \"long\" },\n        { \"name\": \"clientTimestamp\",         \"type\": \"long\" },\n        { \"name\": \"remoteHost\",              \"type\": \"string\" },\n        { \"name\": \"referer\",                 \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"location\",                \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"viewportPixelWidth\",      \"type\": [\"null\", \"int\"],    \"default\": null },\n        { \"name\": \"viewportPixelHeight\",     \"type\": [\"null\", \"int\"],    \"default\": null },\n        { \"name\": \"screenPixelWidth\",        \"type\": [\"null\", \"int\"],    \"default\": null },\n        { \"name\": \"screenPixelHeight\",       \"type\": [\"null\", \"int\"],    \"default\": null },\n        { \"name\": \"devicePixelRatio\",        \"type\": [\"null\", \"int\"],    \"default\": null },\n        { \"name\": \"partyId\",                 \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"sessionId\",               \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"pageViewId\",              \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"eventId\",                 \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"eventType\",               \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"userAgent\",               \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"userAgentName\",           \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"userAgentFamily\",         \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"userAgentVendor\",         \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"userAgentType\",           \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"userAgentVersion\",        \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"userAgentDeviceCategory\", \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"userAgentOsFamily\",       \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"userAgentOsVersion\",      \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"userAgentOsVendor\",       \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"clientIP\",                \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"resourceName\",            \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"resourceDuration\",        \"type\": [\"null\", \"double\"], \"default\": null },\n        { \"name\": \"connectionType\",          \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"connectionDownlinkMax\",   \"type\": [\"null\", \"double\"], \"default\": null }\n    ]\n}"
+        "value" : "{\n    \"namespace\": \"io.divolte.record\",\n    \"type\": \"record\",\n    \"name\": \"DefaultEventRecord\",\n    \"fields\": [\n        { \"name\": \"detectedDuplicate\",       \"type\": \"boolean\" },\n        { \"name\": \"detectedCorruption\",      \"type\": \"boolean\" },\n        { \"name\": \"firstInSession\",          \"type\": \"boolean\" },\n        { \"name\": \"timestamp\",               \"type\": \"long\" },\n        { \"name\": \"clientTimestamp\",         \"type\": \"long\" },\n        { \"name\": \"remoteHost\",              \"type\": \"string\" },\n        { \"name\": \"referer\",                 \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"location\",                \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"locationScheme\",          \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"locationHost\",            \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"locationPort\",            \"type\": [\"null\", \"int\"],    \"default\": null },\n        { \"name\": \"locationPath\",            \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"locationQuery\",           \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"locationFragment\",        \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"viewportPixelWidth\",      \"type\": [\"null\", \"int\"],    \"default\": null },\n        { \"name\": \"viewportPixelHeight\",     \"type\": [\"null\", \"int\"],    \"default\": null },\n        { \"name\": \"screenPixelWidth\",        \"type\": [\"null\", \"int\"],    \"default\": null },\n        { \"name\": \"screenPixelHeight\",       \"type\": [\"null\", \"int\"],    \"default\": null },\n        { \"name\": \"devicePixelRatio\",        \"type\": [\"null\", \"int\"],    \"default\": null },\n        { \"name\": \"partyId\",                 \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"sessionId\",               \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"pageViewId\",              \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"eventId\",                 \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"eventType\",               \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"userAgent\",               \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"userAgentName\",           \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"userAgentFamily\",         \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"userAgentVendor\",         \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"userAgentType\",           \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"userAgentVersion\",        \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"userAgentDeviceCategory\", \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"userAgentOsFamily\",       \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"userAgentOsVersion\",      \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"userAgentOsVendor\",       \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"clientIP\",                \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"resourceName\",            \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"resourceScheme\",          \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"resourceHost\",            \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"resourcePort\",            \"type\": [\"null\", \"int\"],    \"default\": null },\n        { \"name\": \"resourcePath\",            \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"resourceQuery\",           \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"resourceFragment\",        \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"resourceDuration\",        \"type\": [\"null\", \"double\"], \"default\": null },\n        { \"name\": \"resourceTransferSize\",    \"type\": [\"null\", \"double\"], \"default\": null },\n        { \"name\": \"connectionType\",          \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"connectionDownlinkMax\",   \"type\": [\"null\", \"double\"], \"default\": null }\n    ]\n}"
       }, {
         "name" : "conf.dataFormatConfig.schemaRegistryUrls",
         "value" : [ ]
@@ -1024,6 +1024,104 @@
       "eventLanes" : [ ],
       "services" : [ ]
     }, {
+      "instanceName" : "ExpressionEvaluator_01",
+      "library" : "streamsets-datacollector-basic-lib",
+      "stageName" : "com_streamsets_pipeline_stage_processor_expression_ExpressionDProcessor",
+      "stageVersion" : "2",
+      "configuration" : [ {
+        "name" : "expressionProcessorConfigs",
+        "value" : [ {
+          "fieldToSet" : "/timestamp",
+          "expression" : "${record:value('/timestamp') / 1000}"
+        }, {
+          "fieldToSet" : "/clientTimestamp",
+          "expression" : "${record:value('/clientTimestamp') / 1000}"
+        } ]
+      }, {
+        "name" : "headerAttributeConfigs",
+        "value" : [ { } ]
+      }, {
+        "name" : "fieldAttributeConfigs",
+        "value" : [ {
+          "fieldToSet" : "/"
+        } ]
+      }, {
+        "name" : "stageOnRecordError",
+        "value" : "TO_ERROR"
+      }, {
+        "name" : "stageRequiredFields",
+        "value" : [ ]
+      }, {
+        "name" : "stageRecordPreconditions",
+        "value" : [ ]
+      } ],
+      "uiInfo" : {
+        "description" : "",
+        "label" : "drop miliseconds from timestamps",
+        "xPos" : 940,
+        "yPos" : 40,
+        "stageType" : "PROCESSOR"
+      },
+      "inputLanes" : [ "FieldFlattener_01OutputLane16098218843680" ],
+      "outputLanes" : [ "ExpressionEvaluator_01OutputLane16100744025410" ],
+      "eventLanes" : [ ],
+      "services" : [ ]
+    }, {
+      "instanceName" : "FieldTypeConverter_01",
+      "library" : "streamsets-datacollector-basic-lib",
+      "stageName" : "com_streamsets_pipeline_stage_processor_fieldtypeconverter_FieldTypeConverterDProcessor",
+      "stageVersion" : "2",
+      "configuration" : [ {
+        "name" : "convertBy",
+        "value" : "BY_FIELD"
+      }, {
+        "name" : "fieldTypeConverterConfigs",
+        "value" : [ {
+          "fields" : [ "/timestamp", "/clientTimestamp" ],
+          "targetType" : "LONG",
+          "treatInputFieldAsDate" : false,
+          "dataLocale" : "en,US",
+          "scale" : -1,
+          "decimalScaleRoundingStrategy" : "ROUND_UNNECESSARY",
+          "dateFormat" : "YYYY_MM_DD",
+          "zonedDateTimeFormat" : "ISO_ZONED_DATE_TIME",
+          "encoding" : "UTF-8"
+        } ]
+      }, {
+        "name" : "wholeTypeConverterConfigs",
+        "value" : [ {
+          "sourceType" : "INTEGER",
+          "targetType" : "INTEGER",
+          "treatInputFieldAsDate" : false,
+          "dataLocale" : "en,US",
+          "scale" : -1,
+          "decimalScaleRoundingStrategy" : "ROUND_UNNECESSARY",
+          "dateFormat" : "YYYY_MM_DD",
+          "zonedDateTimeFormat" : "ISO_ZONED_DATE_TIME",
+          "encoding" : "UTF-8"
+        } ]
+      }, {
+        "name" : "stageOnRecordError",
+        "value" : "TO_ERROR"
+      }, {
+        "name" : "stageRequiredFields",
+        "value" : [ ]
+      }, {
+        "name" : "stageRecordPreconditions",
+        "value" : [ ]
+      } ],
+      "uiInfo" : {
+        "description" : "",
+        "label" : "convert timestamps",
+        "xPos" : 1160,
+        "yPos" : 40,
+        "stageType" : "PROCESSOR"
+      },
+      "inputLanes" : [ "ExpressionEvaluator_01OutputLane16100744025410" ],
+      "outputLanes" : [ "FieldTypeConverter_01OutputLane16100773220180" ],
+      "eventLanes" : [ ],
+      "services" : [ ]
+    }, {
       "instanceName" : "KafkaProducer_01",
       "library" : "streamsets-datacollector-apache-kafka_2_0-lib",
       "stageName" : "com_streamsets_pipeline_stage_destination_kafka_KafkaDTarget",
@@ -1147,7 +1245,7 @@
         "value" : "*"
       }, {
         "name" : "conf.topic",
-        "value" : "web_static_performance"
+        "value" : "web_static_performance_stream"
       }, {
         "name" : "conf.partitionStrategy",
         "value" : "ROUND_ROBIN"
@@ -1185,11 +1283,11 @@
       "uiInfo" : {
         "description" : "",
         "label" : "clickhouse stream",
-        "xPos" : 940,
+        "xPos" : 1380,
         "yPos" : 40,
         "stageType" : "TARGET"
       },
-      "inputLanes" : [ "FieldFlattener_01OutputLane16098218843680" ],
+      "inputLanes" : [ "FieldTypeConverter_01OutputLane16100773220180" ],
       "outputLanes" : [ ],
       "eventLanes" : [ ],
       "services" : [ ]
@@ -1217,11 +1315,11 @@
       "title" : "website-static-performance",
       "description" : "",
       "created" : 1609813025928,
-      "lastModified" : 1609822007912,
+      "lastModified" : 1610077689444,
       "creator" : "admin",
       "lastModifier" : "admin",
       "lastRev" : "0",
-      "uuid" : "d85e6c82-ae62-4232-a75e-b1f6310449ba",
+      "uuid" : "57895a87-f758-4018-afb1-fcf5ebfe3b76",
       "valid" : true,
       "metadata" : {
         "labels" : [ ]
@@ -1533,9 +1631,9 @@
     },
     "valid" : true,
     "issues" : {
+      "pipelineIssues" : [ ],
       "stageIssues" : { },
-      "issueCount" : 0,
-      "pipelineIssues" : [ ]
+      "issueCount" : 0
     },
     "previewable" : true
   },
