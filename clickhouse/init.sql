@@ -22,9 +22,9 @@ CREATE TABLE IF NOT EXISTS web_static_performance_stream (
     sessionId String,
     pageViewId String,
     eventId String,
-    userAgentFamily String,
-    userAgentDeviceCategory String,
-    userAgentOsFamily String,
+    userAgentFamily Nullable(String),
+    userAgentDeviceCategory Nullable(String),
+    userAgentOsFamily Nullable(String),
     geoIP_ip String,
     geoIP_country_code String,
     geoIP_region_code String,
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS web_static_performance_stream (
     geoIP_longitude Float64
 ) ENGINE = Kafka
       SETTINGS
-          kafka_broker_list = 'kafka:9092',
+          kafka_broker_list = 'broker:29092',
           kafka_topic_list = 'web_static_performance_stream',
           kafka_group_name = 'web_static_performance_stream_consumer',
           kafka_format = 'JSONEachRow';
@@ -63,9 +63,9 @@ CREATE TABLE web_static_performance (
     sessionId String,
     pageViewId String,
     eventId String,
-    userAgentFamily String,
-    userAgentDeviceCategory String,
-    userAgentOsFamily String,
+    userAgentFamily Nullable(String),
+    userAgentDeviceCategory Nullable(String),
+    userAgentOsFamily Nullable(String),
     geoIP_ip String,
     geoIP_country_code String,
     geoIP_region_code String,

@@ -1,0 +1,559 @@
+{
+  "namespace": "io.divolte.record",
+  "type": "record",
+  "name": "DefaultEventRecord",
+  "fields": [
+    {
+      "name": "detectedDuplicate",
+      "type": {
+        "type": "boolean",
+        "arg.properties": {
+          "options": [
+            false
+          ]
+        }
+      }
+    },
+    {
+      "name": "detectedCorruption",
+      "type": {
+        "type": "boolean",
+        "arg.properties": {
+          "options": [
+            false
+          ]
+        }
+      }
+    },
+    {
+      "name": "firstInSession",
+      "type": {
+        "type": "boolean",
+        "arg.properties": {
+          "options": [
+            false
+          ]
+        }
+      }
+    },
+    {
+      "name": "timestamp",
+      "type": {
+        "type": "long",
+        "format_as_time": "unix_long",
+        "arg.properties": {
+          "iteration": {
+            "start": 1,
+            "step": 10
+          }
+        }
+      }
+    },
+    {
+      "name": "clientTimestamp",
+      "type": {
+        "type": "long",
+        "format_as_time": "unix_long",
+        "arg.properties": {
+          "iteration": {
+            "start": 1,
+            "step": 10
+          }
+        }
+      }
+    },
+    {
+      "name": "remoteHost",
+      "type": {
+        "type": "string",
+        "arg.properties": {
+          "options": [
+            "-"
+          ]
+        }
+      }
+    },
+    {
+      "name": "referer",
+      "type": {
+        "type": "string",
+        "arg.properties": {
+          "options": [
+            "-"
+          ]
+        }
+      }
+    },
+    {
+      "name": "location",
+      "type": {
+        "type": "string",
+        "arg.properties": {
+          "options": [
+            "-"
+          ]
+        }
+      }
+    },
+    {
+      "name": "locationScheme",
+      "type": {
+        "type": "string",
+        "arg.properties": {
+          "options": [
+            "https"
+          ]
+        }
+      }
+    },
+    {
+      "name": "locationHost",
+      "type": {
+        "type": "string",
+        "arg.properties": {
+          "regex": "website_[1-5]{1}"
+        }
+      }
+    },
+    {
+      "name": "locationPort",
+      "type": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "int",
+          "arg.properties": {
+            "options": [
+              8443
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "locationPath",
+      "type": {
+        "type": "string",
+        "arg.properties": {
+          "regex": "/[a-zA-Z]{0,4}"
+        }
+      }
+    },
+    {
+      "name": "locationQuery",
+      "type": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "arg.properties": {
+            "regex": "?q=[a-zA-Z]{0,4}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "locationFragment",
+      "type": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "arg.properties": {
+            "regex": "#[a-zA-Z]{0,4}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "viewportPixelWidth",
+      "type": [
+        "null",
+        "int"
+      ],
+      "default": null
+    },
+    {
+      "name": "viewportPixelHeight",
+      "type": [
+        "null",
+        "int"
+      ],
+      "default": null
+    },
+    {
+      "name": "screenPixelWidth",
+      "type": [
+        "null",
+        "int"
+      ],
+      "default": null
+    },
+    {
+      "name": "screenPixelHeight",
+      "type": [
+        "null",
+        "int"
+      ],
+      "default": null
+    },
+    {
+      "name": "devicePixelRatio",
+      "type": [
+        "null",
+        "int"
+      ],
+      "default": null
+    },
+    {
+      "name": "partyId",
+      "type": {
+        "type": "string",
+        "arg.properties": {
+          "regex": "party_[a-zA-Z]{4}"
+        }
+      }
+    },
+    {
+      "name": "sessionId",
+      "type": {
+        "type": "string",
+        "arg.properties": {
+          "regex": "sess_[a-zA-Z]{4}"
+        }
+      }
+    },
+    {
+      "name": "pageViewId",
+      "type": {
+        "type": "string",
+        "arg.properties": {
+          "regex": "pv_[a-zA-Z]{4}"
+        }
+      }
+    },
+    {
+      "name": "eventId",
+      "type": {
+        "type": "string",
+        "arg.properties": {
+          "regex": "ev_[a-zA-Z]{4}"
+        }
+      }
+    },
+    {
+      "name": "eventType",
+      "type": {
+        "type": "string",
+        "arg.properties": {
+          "options": [
+            "resourceLoaded"
+          ]
+        }
+      }
+    },
+    {
+      "name": "userAgent",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "userAgentName",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "userAgentFamily",
+      "type": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "arg.properties": {
+            "options": [
+              "Chrome",
+              "Safari",
+              "Firefox"
+            ]
+          }
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "userAgentVendor",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "userAgentType",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "userAgentVersion",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "userAgentDeviceCategory",
+      "type": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "arg.properties": {
+            "options": [
+              "Desktop",
+              "Mobile"
+            ]
+          }
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "userAgentOsFamily",
+      "type": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "arg.properties": {
+            "options": [
+              "OSx",
+              "Android",
+              "Windows"
+            ]
+          }
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "userAgentOsVersion",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "userAgentOsVendor",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "clientIP",
+      "type": {
+        "session": "true",
+        "type": "string",
+        "arg.properties": {
+          "options": [
+            "111.152.45.45",
+            "111.203.236.146",
+            "111.168.57.122",
+            "111.249.79.93",
+            "111.168.57.122",
+            "111.90.225.227",
+            "111.173.165.103",
+            "111.145.8.144",
+            "111.245.174.248",
+            "111.245.174.111",
+            "222.152.45.45",
+            "222.203.236.146",
+            "222.168.57.122",
+            "222.249.79.93",
+            "222.168.57.122",
+            "222.90.225.227",
+            "222.173.165.103",
+            "222.145.8.144",
+            "222.245.174.248",
+            "222.245.174.222",
+            "122.152.45.245",
+            "122.203.236.246",
+            "122.168.57.222",
+            "122.249.79.233",
+            "122.168.57.222",
+            "122.90.225.227",
+            "122.173.165.203",
+            "122.145.8.244",
+            "122.245.174.248",
+            "122.245.174.122",
+            "233.152.245.45",
+            "233.203.236.146",
+            "233.168.257.122",
+            "233.249.279.93",
+            "233.168.257.122",
+            "233.90.225.227",
+            "233.173.215.103",
+            "233.145.28.144",
+            "233.245.174.248",
+            "233.245.174.233"
+          ]
+        }
+      }
+    },
+    {
+      "name": "resourceName",
+      "type": {
+        "type": "string",
+        "arg.properties": {
+          "options": [
+            "-"
+          ]
+        }
+      }
+    },
+    {
+      "name": "resourceScheme",
+      "type": {
+        "type": "string",
+        "arg.properties": {
+          "options": [
+            "https"
+          ]
+        }
+      }
+    },
+    {
+      "name": "resourceHost",
+      "type": {
+        "type": "string",
+        "arg.properties": {
+          "regex": "cdn_[1-2]{1}"
+        }
+      }
+    },
+    {
+      "name": "resourcePort",
+      "type": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "int",
+          "arg.properties": {
+            "options": [
+              443
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "resourcePath",
+      "type": {
+        "type": "string",
+        "arg.properties": {
+          "regex": "/some/img[1-9]{2}"
+        }
+      }
+    },
+    {
+      "name": "resourceQuery",
+      "type": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "arg.properties": {
+            "options": [
+              "-"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "resourceFragment",
+      "type": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "arg.properties": {
+            "options": [
+              "-"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "resourceDuration",
+      "type": {
+        "type": "double",
+        "arg.properties": {
+          "range": {
+            "min": 0,
+            "max": 1
+          }
+        }
+      }
+    },
+    {
+      "name": "resourceTransferSize",
+      "type": {
+        "type": "double",
+        "arg.properties": {
+          "range": {
+            "min": 0,
+            "max": 10
+          }
+        }
+      }
+    },
+    {
+      "name": "connectionType",
+      "type": {
+        "type": "string",
+        "arg.properties": {
+          "options": [
+            "2g",
+            "3g",
+            "4g"
+          ]
+        }
+      }
+    },
+    {
+      "name": "connectionDownlinkMax",
+      "type": {
+        "type": "double",
+        "arg.properties": {
+          "range": {
+            "min": 0,
+            "max": 10
+          }
+        }
+      }
+    }
+  ]
+}
