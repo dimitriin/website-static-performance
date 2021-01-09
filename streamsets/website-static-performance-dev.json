@@ -2,10 +2,10 @@
   "pipelineConfig" : {
     "schemaVersion" : 6,
     "version" : 13,
-    "pipelineId" : "websitestaticperformance5fd11967-3e69-45df-afc1-7f51c1dc6d31",
-    "title" : "website-static-performance",
+    "pipelineId" : "websitestaticperformancedeva854e2ff-6421-4f86-8439-2776228eac41",
+    "title" : "website-static-performance-dev",
     "description" : "",
-    "uuid" : "fa37e89a-c81e-45fe-9041-c72e917fdb77",
+    "uuid" : "117f82ae-e60e-490b-bdaf-ff83e9787671",
     "configuration" : [ {
       "name" : "executionMode",
       "value" : "STANDALONE"
@@ -444,7 +444,7 @@
         "value" : null
       }, {
         "name" : "conf.dataFormat",
-        "value" : "AVRO"
+        "value" : "JSON"
       }, {
         "name" : "conf.brokerURI",
         "value" : "broker:29092"
@@ -453,19 +453,19 @@
         "value" : "streamsetsDataCollector"
       }, {
         "name" : "conf.topicList",
-        "value" : [ "divolte" ]
+        "value" : [ "datagen" ]
       }, {
         "name" : "conf.produceSingleRecordPerMessage",
         "value" : false
       }, {
         "name" : "conf.numberOfThreads",
-        "value" : 1
+        "value" : 5
       }, {
         "name" : "conf.maxBatchSize",
         "value" : 1000
       }, {
         "name" : "conf.batchWaitTime",
-        "value" : 2000
+        "value" : 200
       }, {
         "name" : "conf.kafkaAutoOffsetReset",
         "value" : "EARLIEST"
@@ -486,7 +486,7 @@
         "value" : "TO_ERROR"
       } ],
       "uiInfo" : {
-        "yPos" : 50,
+        "yPos" : 48,
         "stageType" : "SOURCE",
         "rawSource" : {
           "configuration" : [ {
@@ -505,7 +505,7 @@
         },
         "description" : "",
         "label" : "divolte stream",
-        "xPos" : 60
+        "xPos" : 59
       },
       "inputLanes" : [ ],
       "outputLanes" : [ "KafkaMultitopicConsumer_01OutputLane16098138651270" ],
@@ -792,7 +792,7 @@
         "value" : "JSON"
       }, {
         "name" : "conf.resourceUrl",
-        "value" : "https://freegeoip.app/json/${record:value('/clientIP')}"
+        "value" : "http://freegeoip-proxy/json/${record:value('/clientIP')}"
       }, {
         "name" : "conf.headers",
         "value" : [ ]
@@ -822,7 +822,7 @@
         "value" : 0
       }, {
         "name" : "conf.client.numThreads",
-        "value" : 1
+        "value" : 100
       }, {
         "name" : "conf.client.authType",
         "value" : "NONE"
@@ -968,7 +968,7 @@
       "uiInfo" : {
         "description" : "",
         "label" : "fetch geoIP",
-        "xPos" : 500,
+        "xPos" : 502,
         "yPos" : 40,
         "stageType" : "PROCESSOR"
       },
@@ -1284,7 +1284,7 @@
         "description" : "",
         "label" : "clickhouse stream",
         "xPos" : 1380,
-        "yPos" : 40,
+        "yPos" : 42,
         "stageType" : "TARGET"
       },
       "inputLanes" : [ "FieldTypeConverter_01OutputLane16100773220180" ],
@@ -1311,20 +1311,20 @@
       "services" : [ ]
     },
     "info" : {
-      "pipelineId" : "websitestaticperformance5fd11967-3e69-45df-afc1-7f51c1dc6d31",
-      "title" : "website-static-performance",
+      "pipelineId" : "websitestaticperformancedeva854e2ff-6421-4f86-8439-2776228eac41",
+      "title" : "website-static-performance-dev",
       "description" : "",
-      "created" : 1609813025928,
-      "lastModified" : 1610159815213,
+      "created" : 1610170082544,
+      "lastModified" : 1610180348380,
       "creator" : "admin",
       "lastModifier" : "admin",
       "lastRev" : "0",
-      "uuid" : "fa37e89a-c81e-45fe-9041-c72e917fdb77",
+      "uuid" : "117f82ae-e60e-490b-bdaf-ff83e9787671",
       "valid" : true,
       "metadata" : {
         "labels" : [ ]
       },
-      "name" : "websitestaticperformance5fd11967-3e69-45df-afc1-7f51c1dc6d31",
+      "name" : "websitestaticperformancedeva854e2ff-6421-4f86-8439-2776228eac41",
       "sdcVersion" : "3.9.1",
       "sdcId" : "d5bd8fab-4efb-11eb-8cc1-33240ee3e1e7"
     },
@@ -1687,7 +1687,7 @@
     } ],
     "dataRuleDefinitions" : [ ],
     "driftRuleDefinitions" : [ ],
-    "uuid" : "a5658d13-d240-4ca0-ae25-b9923f850e18",
+    "uuid" : "06938cf4-4e15-402e-803d-f06709dceadd",
     "configuration" : [ {
       "name" : "emailIDs",
       "value" : [ ]
