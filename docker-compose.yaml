@@ -157,7 +157,7 @@ services:
                        cub sr-ready schema-registry 8081 40 && \
                        echo Waiting a few seconds for topic creation to finish... && \
                        sleep 60 && \
-                       ksql-datagen schema=/datagen/schema.datagen.avsc.json bootstrap-server=broker:29092 topic=datagen schemaRegistryUrl=http://schema-regist:8081 key=eventId format=json msgRate=1000'"
+                       ksql-datagen schema=/datagen/schema.datagen.avsc.json bootstrap-server=broker:29092 topic=datagen schemaRegistryUrl=http://schema-regist:8081 key=eventId format=json msgRate=1'"
     environment:
       KSQL_CONFIG_DIR: "/etc/ksql"
       STREAMS_BOOTSTRAP_SERVERS: broker:29092
@@ -181,11 +181,28 @@ services:
       KAFKA_REST_LISTENERS: "http://0.0.0.0:8082"
       KAFKA_REST_SCHEMA_REGISTRY_URL: 'http://schema-registry:8081'
 
+  namenode:
+    image: bde2020/hadoop-namenode:2.0.0-hadoop3.2.1-java8
+    ports:
+      - 9870:9870
+      - 9090:9000
+    environment:
+      - CLUSTER_NAME=test
+    env_file:
+      - ./hadoop/hadoop.env
+
+  datanode:
+    image: bde2020/hadoop-datanode:2.0.0-hadoop3.2.1-java8
+    environment:
+      SERVICE_PRECONDITION: "namenode:9870"
+    env_file:
+      - ./hadoop/hadoop.env
+
   streamsets:
     build:
       context: "./streamsets"
       args:
-        SDC_LIBS: streamsets-datacollector-apache-kafka_2_0-lib
+        SDC_LIBS: streamsets-datacollector-apache-kafka_2_0-lib,streamsets-datacollector-cdh_5_16-lib
     ports:
       - 18630:18630
     volumes:

@@ -5,7 +5,7 @@
     "pipelineId" : "websitestaticperformance5fd11967-3e69-45df-afc1-7f51c1dc6d31",
     "title" : "website-static-performance",
     "description" : "",
-    "uuid" : "fa37e89a-c81e-45fe-9041-c72e917fdb77",
+    "uuid" : "7fb4cc3d-9edf-488c-b675-44d8f0172b46",
     "configuration" : [ {
       "name" : "executionMode",
       "value" : "STANDALONE"
@@ -1291,6 +1291,215 @@
       "outputLanes" : [ ],
       "eventLanes" : [ ],
       "services" : [ ]
+    }, {
+      "instanceName" : "HadoopFS_01",
+      "library" : "streamsets-datacollector-cdh_5_16-lib",
+      "stageName" : "com_streamsets_pipeline_stage_destination_hdfs_HdfsDTarget",
+      "stageVersion" : "4",
+      "configuration" : [ {
+        "name" : "hdfsTargetConfigBean.uniquePrefix",
+        "value" : "sdc-${sdc:id()}"
+      }, {
+        "name" : "hdfsTargetConfigBean.fileNameSuffix",
+        "value" : "avro.snappy"
+      }, {
+        "name" : "hdfsTargetConfigBean.dirPathTemplateInHeader",
+        "value" : false
+      }, {
+        "name" : "hdfsTargetConfigBean.dirPathTemplate",
+        "value" : "/tmp/website-static-performance/${YYYY()}-${MM()}-${DD()}-${hh()}"
+      }, {
+        "name" : "hdfsTargetConfigBean.timeZoneID",
+        "value" : "UTC"
+      }, {
+        "name" : "hdfsTargetConfigBean.timeDriver",
+        "value" : "${time:now()}"
+      }, {
+        "name" : "hdfsTargetConfigBean.maxRecordsPerFile",
+        "value" : 0
+      }, {
+        "name" : "hdfsTargetConfigBean.maxFileSize",
+        "value" : 0
+      }, {
+        "name" : "hdfsTargetConfigBean.idleTimeout",
+        "value" : "${1 * HOURS}"
+      }, {
+        "name" : "hdfsTargetConfigBean.compression",
+        "value" : "NONE"
+      }, {
+        "name" : "hdfsTargetConfigBean.otherCompression",
+        "value" : null
+      }, {
+        "name" : "hdfsTargetConfigBean.fileType",
+        "value" : "TEXT"
+      }, {
+        "name" : "hdfsTargetConfigBean.keyEl",
+        "value" : "${uuid()}"
+      }, {
+        "name" : "hdfsTargetConfigBean.seqFileCompressionType",
+        "value" : "BLOCK"
+      }, {
+        "name" : "hdfsTargetConfigBean.lateRecordsLimit",
+        "value" : "${1 * HOURS}"
+      }, {
+        "name" : "hdfsTargetConfigBean.rollIfHeader",
+        "value" : false
+      }, {
+        "name" : "hdfsTargetConfigBean.rollHeaderName",
+        "value" : "roll"
+      }, {
+        "name" : "hdfsTargetConfigBean.lateRecordsAction",
+        "value" : "SEND_TO_ERROR"
+      }, {
+        "name" : "hdfsTargetConfigBean.lateRecordsDirPathTemplate",
+        "value" : "/tmp/late/${YYYY()}-${MM()}-${DD()}"
+      }, {
+        "name" : "hdfsTargetConfigBean.dataFormat",
+        "value" : "AVRO"
+      }, {
+        "name" : "hdfsTargetConfigBean.hdfsPermissionCheck",
+        "value" : true
+      }, {
+        "name" : "hdfsTargetConfigBean.permissionEL",
+        "value" : null
+      }, {
+        "name" : "hdfsTargetConfigBean.skipOldTempFileRecovery",
+        "value" : false
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.charset",
+        "value" : "UTF-8"
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.csvFileFormat",
+        "value" : "CSV"
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.csvHeader",
+        "value" : "NO_HEADER"
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.csvReplaceNewLines",
+        "value" : true
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.csvReplaceNewLinesString",
+        "value" : " "
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.csvCustomDelimiter",
+        "value" : "|"
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.csvCustomEscape",
+        "value" : "\\"
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.csvCustomQuote",
+        "value" : "\""
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.jsonMode",
+        "value" : "MULTIPLE_OBJECTS"
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.textFieldPath",
+        "value" : "/text"
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.textRecordSeparator",
+        "value" : "\\n"
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.textFieldMissingAction",
+        "value" : "ERROR"
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.textEmptyLineIfNull",
+        "value" : false
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.avroSchemaSource",
+        "value" : "INLINE"
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.avroSchema",
+        "value" : "{\n    \"namespace\": \"io.divolte.record\",\n    \"type\": \"record\",\n    \"name\": \"DefaultEventRecord\",\n    \"fields\": [\n        { \"name\": \"detectedDuplicate\",       \"type\": \"boolean\" },\n        { \"name\": \"detectedCorruption\",      \"type\": \"boolean\" },\n        { \"name\": \"firstInSession\",          \"type\": \"boolean\" },\n        { \"name\": \"timestamp\",               \"type\": \"long\" },\n        { \"name\": \"clientTimestamp\",         \"type\": \"long\" },\n        { \"name\": \"remoteHost\",              \"type\": \"string\" },\n        { \"name\": \"referer\",                 \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"location\",                \"type\": \"string\" },\n        { \"name\": \"locationScheme\",          \"type\": \"string\" },\n        { \"name\": \"locationHost\",            \"type\": \"string\" },\n        { \"name\": \"locationPort\",            \"type\": [\"null\", \"int\"],    \"default\": null },\n        { \"name\": \"locationPath\",            \"type\": \"string\" },\n        { \"name\": \"locationQuery\",           \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"locationFragment\",        \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"viewportPixelWidth\",      \"type\": [\"null\", \"int\"],    \"default\": null },\n        { \"name\": \"viewportPixelHeight\",     \"type\": [\"null\", \"int\"],    \"default\": null },\n        { \"name\": \"screenPixelWidth\",        \"type\": [\"null\", \"int\"],    \"default\": null },\n        { \"name\": \"screenPixelHeight\",       \"type\": [\"null\", \"int\"],    \"default\": null },\n        { \"name\": \"devicePixelRatio\",        \"type\": [\"null\", \"int\"],    \"default\": null },\n        { \"name\": \"partyId\",                 \"type\": \"string\" },\n        { \"name\": \"sessionId\",               \"type\": \"string\" },\n        { \"name\": \"pageViewId\",              \"type\": \"string\" },\n        { \"name\": \"eventId\",                 \"type\": \"string\" },\n        { \"name\": \"eventType\",               \"type\": \"string\" },\n        { \"name\": \"userAgent\",               \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"userAgentName\",           \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"userAgentFamily\",         \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"userAgentVendor\",         \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"userAgentType\",           \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"userAgentVersion\",        \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"userAgentDeviceCategory\", \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"userAgentOsFamily\",       \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"userAgentOsVersion\",      \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"userAgentOsVendor\",       \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"clientIP\",                \"type\": \"string\" },\n        { \"name\": \"resourceName\",            \"type\": \"string\" },\n        { \"name\": \"resourceScheme\",          \"type\": \"string\" },\n        { \"name\": \"resourceHost\",            \"type\": \"string\" },\n        { \"name\": \"resourcePort\",            \"type\": [\"null\", \"int\"],    \"default\": null },\n        { \"name\": \"resourcePath\",            \"type\": \"string\" },\n        { \"name\": \"resourceQuery\",           \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"resourceFragment\",        \"type\": [\"null\", \"string\"], \"default\": null },\n        { \"name\": \"resourceDuration\",        \"type\": \"double\" },\n        { \"name\": \"resourceTransferSize\",    \"type\": \"double\" },\n        { \"name\": \"connectionType\",          \"type\": \"string\" },\n        { \"name\": \"connectionDownlinkMax\",   \"type\": \"double\" }\n    ]\n}"
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.registerSchema",
+        "value" : false
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.schemaRegistryUrlsForRegistration",
+        "value" : [ ]
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.schemaRegistryUrls",
+        "value" : [ ]
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.schemaLookupMode",
+        "value" : "SUBJECT"
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.subject",
+        "value" : null
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.subjectToRegister",
+        "value" : null
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.schemaId",
+        "value" : null
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.avroCompression",
+        "value" : "SNAPPY"
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.binaryFieldPath",
+        "value" : "/"
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.protoDescriptorFile",
+        "value" : null
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.messageType",
+        "value" : null
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.fileNameEL",
+        "value" : null
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.wholeFileExistsAction",
+        "value" : "TO_ERROR"
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.includeChecksumInTheEvents",
+        "value" : false
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.checksumAlgorithm",
+        "value" : "MD5"
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.xmlPrettyPrint",
+        "value" : true
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.xmlValidateSchema",
+        "value" : false
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.xmlSchema",
+        "value" : null
+      }, {
+        "name" : "hdfsTargetConfigBean.hdfsUri",
+        "value" : "hdfs://namenode:9000"
+      }, {
+        "name" : "hdfsTargetConfigBean.hdfsUser",
+        "value" : null
+      }, {
+        "name" : "hdfsTargetConfigBean.hdfsKerberos",
+        "value" : false
+      }, {
+        "name" : "hdfsTargetConfigBean.hdfsConfDir",
+        "value" : null
+      }, {
+        "name" : "hdfsTargetConfigBean.hdfsConfigs",
+        "value" : [ { } ]
+      }, {
+        "name" : "stageOnRecordError",
+        "value" : "TO_ERROR"
+      }, {
+        "name" : "stageRequiredFields",
+        "value" : [ ]
+      }, {
+        "name" : "stageRecordPreconditions",
+        "value" : [ ]
+      } ],
+      "uiInfo" : {
+        "description" : "",
+        "label" : "input data to hdfs",
+        "xPos" : 280,
+        "yPos" : 200,
+        "stageType" : "TARGET"
+      },
+      "inputLanes" : [ "KafkaMultitopicConsumer_01OutputLane16098138651270" ],
+      "outputLanes" : [ ],
+      "eventLanes" : [ ],
+      "services" : [ ]
     } ],
     "errorStage" : {
       "instanceName" : "Discard_ErrorStage",
@@ -1315,11 +1524,11 @@
       "title" : "website-static-performance",
       "description" : "",
       "created" : 1609813025928,
-      "lastModified" : 1610159815213,
+      "lastModified" : 1610196630921,
       "creator" : "admin",
       "lastModifier" : "admin",
       "lastRev" : "0",
-      "uuid" : "fa37e89a-c81e-45fe-9041-c72e917fdb77",
+      "uuid" : "7fb4cc3d-9edf-488c-b675-44d8f0172b46",
       "valid" : true,
       "metadata" : {
         "labels" : [ ]
@@ -1631,9 +1840,9 @@
     },
     "valid" : true,
     "issues" : {
-      "pipelineIssues" : [ ],
       "stageIssues" : { },
-      "issueCount" : 0
+      "issueCount" : 0,
+      "pipelineIssues" : [ ]
     },
     "previewable" : true
   },

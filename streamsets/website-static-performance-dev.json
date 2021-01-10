@@ -5,7 +5,7 @@
     "pipelineId" : "websitestaticperformancedeva854e2ff-6421-4f86-8439-2776228eac41",
     "title" : "website-static-performance-dev",
     "description" : "",
-    "uuid" : "117f82ae-e60e-490b-bdaf-ff83e9787671",
+    "uuid" : "d525200b-7ad8-48ce-829d-65e5d8166f21",
     "configuration" : [ {
       "name" : "executionMode",
       "value" : "STANDALONE"
@@ -486,7 +486,7 @@
         "value" : "TO_ERROR"
       } ],
       "uiInfo" : {
-        "yPos" : 48,
+        "yPos" : 50,
         "stageType" : "SOURCE",
         "rawSource" : {
           "configuration" : [ {
@@ -505,7 +505,7 @@
         },
         "description" : "",
         "label" : "divolte stream",
-        "xPos" : 59
+        "xPos" : 60
       },
       "inputLanes" : [ ],
       "outputLanes" : [ "KafkaMultitopicConsumer_01OutputLane16098138651270" ],
@@ -968,7 +968,7 @@
       "uiInfo" : {
         "description" : "",
         "label" : "fetch geoIP",
-        "xPos" : 502,
+        "xPos" : 500,
         "yPos" : 40,
         "stageType" : "PROCESSOR"
       },
@@ -1284,10 +1284,219 @@
         "description" : "",
         "label" : "clickhouse stream",
         "xPos" : 1380,
-        "yPos" : 42,
+        "yPos" : 40,
         "stageType" : "TARGET"
       },
       "inputLanes" : [ "FieldTypeConverter_01OutputLane16100773220180" ],
+      "outputLanes" : [ ],
+      "eventLanes" : [ ],
+      "services" : [ ]
+    }, {
+      "instanceName" : "HadoopFS_01",
+      "library" : "streamsets-datacollector-cdh_5_16-lib",
+      "stageName" : "com_streamsets_pipeline_stage_destination_hdfs_HdfsDTarget",
+      "stageVersion" : "4",
+      "configuration" : [ {
+        "name" : "hdfsTargetConfigBean.uniquePrefix",
+        "value" : "sdc-${sdc:id()}"
+      }, {
+        "name" : "hdfsTargetConfigBean.fileNameSuffix",
+        "value" : "avro.snappy"
+      }, {
+        "name" : "hdfsTargetConfigBean.dirPathTemplateInHeader",
+        "value" : false
+      }, {
+        "name" : "hdfsTargetConfigBean.dirPathTemplate",
+        "value" : "/tmp/website-static-performance/dev/input/${YYYY()}-${MM()}-${DD()}-${hh()}"
+      }, {
+        "name" : "hdfsTargetConfigBean.timeZoneID",
+        "value" : "UTC"
+      }, {
+        "name" : "hdfsTargetConfigBean.timeDriver",
+        "value" : "${time:now()}"
+      }, {
+        "name" : "hdfsTargetConfigBean.maxRecordsPerFile",
+        "value" : 0
+      }, {
+        "name" : "hdfsTargetConfigBean.maxFileSize",
+        "value" : 0
+      }, {
+        "name" : "hdfsTargetConfigBean.idleTimeout",
+        "value" : "${1 * HOURS}"
+      }, {
+        "name" : "hdfsTargetConfigBean.compression",
+        "value" : "NONE"
+      }, {
+        "name" : "hdfsTargetConfigBean.otherCompression",
+        "value" : null
+      }, {
+        "name" : "hdfsTargetConfigBean.fileType",
+        "value" : "TEXT"
+      }, {
+        "name" : "hdfsTargetConfigBean.keyEl",
+        "value" : "${uuid()}"
+      }, {
+        "name" : "hdfsTargetConfigBean.seqFileCompressionType",
+        "value" : "BLOCK"
+      }, {
+        "name" : "hdfsTargetConfigBean.lateRecordsLimit",
+        "value" : "${1 * HOURS}"
+      }, {
+        "name" : "hdfsTargetConfigBean.rollIfHeader",
+        "value" : false
+      }, {
+        "name" : "hdfsTargetConfigBean.rollHeaderName",
+        "value" : "roll"
+      }, {
+        "name" : "hdfsTargetConfigBean.lateRecordsAction",
+        "value" : "SEND_TO_ERROR"
+      }, {
+        "name" : "hdfsTargetConfigBean.lateRecordsDirPathTemplate",
+        "value" : "/tmp/late/${YYYY()}-${MM()}-${DD()}"
+      }, {
+        "name" : "hdfsTargetConfigBean.dataFormat",
+        "value" : "AVRO"
+      }, {
+        "name" : "hdfsTargetConfigBean.hdfsPermissionCheck",
+        "value" : true
+      }, {
+        "name" : "hdfsTargetConfigBean.permissionEL",
+        "value" : null
+      }, {
+        "name" : "hdfsTargetConfigBean.skipOldTempFileRecovery",
+        "value" : false
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.charset",
+        "value" : "UTF-8"
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.csvFileFormat",
+        "value" : "CSV"
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.csvHeader",
+        "value" : "NO_HEADER"
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.csvReplaceNewLines",
+        "value" : true
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.csvReplaceNewLinesString",
+        "value" : " "
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.csvCustomDelimiter",
+        "value" : "|"
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.csvCustomEscape",
+        "value" : "\\"
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.csvCustomQuote",
+        "value" : "\""
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.jsonMode",
+        "value" : "MULTIPLE_OBJECTS"
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.textFieldPath",
+        "value" : "/text"
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.textRecordSeparator",
+        "value" : "\\n"
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.textFieldMissingAction",
+        "value" : "ERROR"
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.textEmptyLineIfNull",
+        "value" : false
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.avroSchemaSource",
+        "value" : "INLINE"
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.avroSchema",
+        "value" : "{\n  \"namespace\": \"io.divolte.record\",\n  \"type\": \"record\",\n  \"name\": \"DefaultEventRecord\",\n  \"fields\": [\n    {\n      \"name\": \"detectedDuplicate\",\n      \"type\": {\n        \"type\": \"boolean\",\n        \"arg.properties\": {\n          \"options\": [\n            false\n          ]\n        }\n      }\n    },\n    {\n      \"name\": \"detectedCorruption\",\n      \"type\": {\n        \"type\": \"boolean\",\n        \"arg.properties\": {\n          \"options\": [\n            false\n          ]\n        }\n      }\n    },\n    {\n      \"name\": \"firstInSession\",\n      \"type\": {\n        \"type\": \"boolean\",\n        \"arg.properties\": {\n          \"options\": [\n            false\n          ]\n        }\n      }\n    },\n    {\n      \"name\": \"timestamp\",\n      \"type\": {\n        \"type\": \"long\",\n        \"format_as_time\": \"unix_long\",\n        \"arg.properties\": {\n          \"iteration\": {\n            \"start\": 1,\n            \"step\": 10\n          }\n        }\n      }\n    },\n    {\n      \"name\": \"clientTimestamp\",\n      \"type\": {\n        \"type\": \"long\",\n        \"format_as_time\": \"unix_long\",\n        \"arg.properties\": {\n          \"iteration\": {\n            \"start\": 1,\n            \"step\": 10\n          }\n        }\n      }\n    },\n    {\n      \"name\": \"remoteHost\",\n      \"type\": {\n        \"type\": \"string\",\n        \"arg.properties\": {\n          \"options\": [\n            \"-\"\n          ]\n        }\n      }\n    },\n    {\n      \"name\": \"referer\",\n      \"type\": {\n        \"type\": \"string\",\n        \"arg.properties\": {\n          \"options\": [\n            \"-\"\n          ]\n        }\n      }\n    },\n    {\n      \"name\": \"location\",\n      \"type\": {\n        \"type\": \"string\",\n        \"arg.properties\": {\n          \"options\": [\n            \"-\"\n          ]\n        }\n      }\n    },\n    {\n      \"name\": \"locationScheme\",\n      \"type\": {\n        \"type\": \"string\",\n        \"arg.properties\": {\n          \"options\": [\n            \"https\"\n          ]\n        }\n      }\n    },\n    {\n      \"name\": \"locationHost\",\n      \"type\": {\n        \"type\": \"string\",\n        \"arg.properties\": {\n          \"regex\": \"website_[1-5]{1}\"\n        }\n      }\n    },\n    {\n      \"name\": \"locationPort\",\n      \"type\": [\n        {\n          \"type\": \"null\"\n        },\n        {\n          \"type\": \"int\",\n          \"arg.properties\": {\n            \"options\": [\n              8443\n            ]\n          }\n        }\n      ]\n    },\n    {\n      \"name\": \"locationPath\",\n      \"type\": {\n        \"type\": \"string\",\n        \"arg.properties\": {\n          \"regex\": \"/[a-zA-Z]{0,4}\"\n        }\n      }\n    },\n    {\n      \"name\": \"locationQuery\",\n      \"type\": [\n        {\n          \"type\": \"null\"\n        },\n        {\n          \"type\": \"string\",\n          \"arg.properties\": {\n            \"regex\": \"?q=[a-zA-Z]{0,4}\"\n          }\n        }\n      ]\n    },\n    {\n      \"name\": \"locationFragment\",\n      \"type\": [\n        {\n          \"type\": \"null\"\n        },\n        {\n          \"type\": \"string\",\n          \"arg.properties\": {\n            \"regex\": \"#[a-zA-Z]{0,4}\"\n          }\n        }\n      ]\n    },\n    {\n      \"name\": \"viewportPixelWidth\",\n      \"type\": [\n        \"null\",\n        \"int\"\n      ],\n      \"default\": null\n    },\n    {\n      \"name\": \"viewportPixelHeight\",\n      \"type\": [\n        \"null\",\n        \"int\"\n      ],\n      \"default\": null\n    },\n    {\n      \"name\": \"screenPixelWidth\",\n      \"type\": [\n        \"null\",\n        \"int\"\n      ],\n      \"default\": null\n    },\n    {\n      \"name\": \"screenPixelHeight\",\n      \"type\": [\n        \"null\",\n        \"int\"\n      ],\n      \"default\": null\n    },\n    {\n      \"name\": \"devicePixelRatio\",\n      \"type\": [\n        \"null\",\n        \"int\"\n      ],\n      \"default\": null\n    },\n    {\n      \"name\": \"partyId\",\n      \"type\": {\n        \"type\": \"string\",\n        \"arg.properties\": {\n          \"regex\": \"party_[a-zA-Z]{4}\"\n        }\n      }\n    },\n    {\n      \"name\": \"sessionId\",\n      \"type\": {\n        \"type\": \"string\",\n        \"arg.properties\": {\n          \"regex\": \"sess_[a-zA-Z]{4}\"\n        }\n      }\n    },\n    {\n      \"name\": \"pageViewId\",\n      \"type\": {\n        \"type\": \"string\",\n        \"arg.properties\": {\n          \"regex\": \"pv_[a-zA-Z]{4}\"\n        }\n      }\n    },\n    {\n      \"name\": \"eventId\",\n      \"type\": {\n        \"type\": \"string\",\n        \"arg.properties\": {\n          \"regex\": \"ev_[a-zA-Z]{4}\"\n        }\n      }\n    },\n    {\n      \"name\": \"eventType\",\n      \"type\": {\n        \"type\": \"string\",\n        \"arg.properties\": {\n          \"options\": [\n            \"resourceLoaded\"\n          ]\n        }\n      }\n    },\n    {\n      \"name\": \"userAgent\",\n      \"type\": [\n        \"null\",\n        \"string\"\n      ],\n      \"default\": null\n    },\n    {\n      \"name\": \"userAgentName\",\n      \"type\": [\n        \"null\",\n        \"string\"\n      ],\n      \"default\": null\n    },\n    {\n      \"name\": \"userAgentFamily\",\n      \"type\": [\n        {\n          \"type\": \"null\"\n        },\n        {\n          \"type\": \"string\",\n          \"arg.properties\": {\n            \"options\": [\n              \"Chrome\",\n              \"Safari\",\n              \"Firefox\"\n            ]\n          }\n        }\n      ],\n      \"default\": null\n    },\n    {\n      \"name\": \"userAgentVendor\",\n      \"type\": [\n        \"null\",\n        \"string\"\n      ],\n      \"default\": null\n    },\n    {\n      \"name\": \"userAgentType\",\n      \"type\": [\n        \"null\",\n        \"string\"\n      ],\n      \"default\": null\n    },\n    {\n      \"name\": \"userAgentVersion\",\n      \"type\": [\n        \"null\",\n        \"string\"\n      ],\n      \"default\": null\n    },\n    {\n      \"name\": \"userAgentDeviceCategory\",\n      \"type\": [\n        {\n          \"type\": \"null\"\n        },\n        {\n          \"type\": \"string\",\n          \"arg.properties\": {\n            \"options\": [\n              \"Desktop\",\n              \"Mobile\"\n            ]\n          }\n        }\n      ],\n      \"default\": null\n    },\n    {\n      \"name\": \"userAgentOsFamily\",\n      \"type\": [\n        {\n          \"type\": \"null\"\n        },\n        {\n          \"type\": \"string\",\n          \"arg.properties\": {\n            \"options\": [\n              \"OSx\",\n              \"Android\",\n              \"Windows\"\n            ]\n          }\n        }\n      ],\n      \"default\": null\n    },\n    {\n      \"name\": \"userAgentOsVersion\",\n      \"type\": [\n        \"null\",\n        \"string\"\n      ],\n      \"default\": null\n    },\n    {\n      \"name\": \"userAgentOsVendor\",\n      \"type\": [\n        \"null\",\n        \"string\"\n      ],\n      \"default\": null\n    },\n    {\n      \"name\": \"clientIP\",\n      \"type\": {\n        \"session\": \"true\",\n        \"type\": \"string\",\n        \"arg.properties\": {\n          \"options\": [\n            \"111.152.45.45\",\n            \"111.203.236.146\",\n            \"111.168.57.122\",\n            \"111.249.79.93\",\n            \"111.168.57.122\",\n            \"111.90.225.227\",\n            \"111.173.165.103\",\n            \"111.145.8.144\",\n            \"111.245.174.248\",\n            \"111.245.174.111\",\n            \"222.152.45.45\",\n            \"222.203.236.146\",\n            \"222.168.57.122\",\n            \"222.249.79.93\",\n            \"222.168.57.122\",\n            \"222.90.225.227\",\n            \"222.173.165.103\",\n            \"222.145.8.144\",\n            \"222.245.174.248\",\n            \"222.245.174.222\",\n            \"122.152.45.245\",\n            \"122.203.236.246\",\n            \"122.168.57.222\",\n            \"122.249.79.233\",\n            \"122.168.57.222\",\n            \"122.90.225.227\",\n            \"122.173.165.203\",\n            \"122.145.8.244\",\n            \"122.245.174.248\",\n            \"122.245.174.122\",\n            \"233.152.245.45\",\n            \"233.203.236.146\",\n            \"233.168.257.122\",\n            \"233.249.279.93\",\n            \"233.168.257.122\",\n            \"233.90.225.227\",\n            \"233.173.215.103\",\n            \"233.145.28.144\",\n            \"233.245.174.248\",\n            \"233.245.174.233\"\n          ]\n        }\n      }\n    },\n    {\n      \"name\": \"resourceName\",\n      \"type\": {\n        \"type\": \"string\",\n        \"arg.properties\": {\n          \"options\": [\n            \"-\"\n          ]\n        }\n      }\n    },\n    {\n      \"name\": \"resourceScheme\",\n      \"type\": {\n        \"type\": \"string\",\n        \"arg.properties\": {\n          \"options\": [\n            \"https\"\n          ]\n        }\n      }\n    },\n    {\n      \"name\": \"resourceHost\",\n      \"type\": {\n        \"type\": \"string\",\n        \"arg.properties\": {\n          \"regex\": \"cdn_[1-2]{1}\"\n        }\n      }\n    },\n    {\n      \"name\": \"resourcePort\",\n      \"type\": [\n        {\n          \"type\": \"null\"\n        },\n        {\n          \"type\": \"int\",\n          \"arg.properties\": {\n            \"options\": [\n              443\n            ]\n          }\n        }\n      ]\n    },\n    {\n      \"name\": \"resourcePath\",\n      \"type\": {\n        \"type\": \"string\",\n        \"arg.properties\": {\n          \"regex\": \"/some/img[1-9]{2}\"\n        }\n      }\n    },\n    {\n      \"name\": \"resourceQuery\",\n      \"type\": [\n        {\n          \"type\": \"null\"\n        },\n        {\n          \"type\": \"string\",\n          \"arg.properties\": {\n            \"options\": [\n              \"-\"\n            ]\n          }\n        }\n      ]\n    },\n    {\n      \"name\": \"resourceFragment\",\n      \"type\": [\n        {\n          \"type\": \"null\"\n        },\n        {\n          \"type\": \"string\",\n          \"arg.properties\": {\n            \"options\": [\n              \"-\"\n            ]\n          }\n        }\n      ]\n    },\n    {\n      \"name\": \"resourceDuration\",\n      \"type\": {\n        \"type\": \"double\",\n        \"arg.properties\": {\n          \"range\": {\n            \"min\": 0,\n            \"max\": 1\n          }\n        }\n      }\n    },\n    {\n      \"name\": \"resourceTransferSize\",\n      \"type\": {\n        \"type\": \"double\",\n        \"arg.properties\": {\n          \"range\": {\n            \"min\": 0,\n            \"max\": 10\n          }\n        }\n      }\n    },\n    {\n      \"name\": \"connectionType\",\n      \"type\": {\n        \"type\": \"string\",\n        \"arg.properties\": {\n          \"options\": [\n            \"2g\",\n            \"3g\",\n            \"4g\"\n          ]\n        }\n      }\n    },\n    {\n      \"name\": \"connectionDownlinkMax\",\n      \"type\": {\n        \"type\": \"double\",\n        \"arg.properties\": {\n          \"range\": {\n            \"min\": 0,\n            \"max\": 10\n          }\n        }\n      }\n    }\n  ]\n}"
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.registerSchema",
+        "value" : false
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.schemaRegistryUrlsForRegistration",
+        "value" : [ ]
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.schemaRegistryUrls",
+        "value" : [ ]
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.schemaLookupMode",
+        "value" : "SUBJECT"
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.subject",
+        "value" : null
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.subjectToRegister",
+        "value" : null
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.schemaId",
+        "value" : null
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.avroCompression",
+        "value" : "SNAPPY"
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.binaryFieldPath",
+        "value" : "/"
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.protoDescriptorFile",
+        "value" : null
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.messageType",
+        "value" : null
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.fileNameEL",
+        "value" : null
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.wholeFileExistsAction",
+        "value" : "TO_ERROR"
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.includeChecksumInTheEvents",
+        "value" : false
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.checksumAlgorithm",
+        "value" : "MD5"
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.xmlPrettyPrint",
+        "value" : true
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.xmlValidateSchema",
+        "value" : false
+      }, {
+        "name" : "hdfsTargetConfigBean.dataGeneratorFormatConfig.xmlSchema",
+        "value" : null
+      }, {
+        "name" : "hdfsTargetConfigBean.hdfsUri",
+        "value" : "hdfs://namenode:9000"
+      }, {
+        "name" : "hdfsTargetConfigBean.hdfsUser",
+        "value" : null
+      }, {
+        "name" : "hdfsTargetConfigBean.hdfsKerberos",
+        "value" : false
+      }, {
+        "name" : "hdfsTargetConfigBean.hdfsConfDir",
+        "value" : null
+      }, {
+        "name" : "hdfsTargetConfigBean.hdfsConfigs",
+        "value" : [ { } ]
+      }, {
+        "name" : "stageOnRecordError",
+        "value" : "TO_ERROR"
+      }, {
+        "name" : "stageRequiredFields",
+        "value" : [ ]
+      }, {
+        "name" : "stageRecordPreconditions",
+        "value" : [ ]
+      } ],
+      "uiInfo" : {
+        "description" : "",
+        "label" : "input data to hdfs",
+        "xPos" : 280,
+        "yPos" : 200,
+        "stageType" : "TARGET"
+      },
+      "inputLanes" : [ "KafkaMultitopicConsumer_01OutputLane16098138651270" ],
       "outputLanes" : [ ],
       "eventLanes" : [ ],
       "services" : [ ]
@@ -1315,11 +1524,11 @@
       "title" : "website-static-performance-dev",
       "description" : "",
       "created" : 1610170082544,
-      "lastModified" : 1610180348380,
+      "lastModified" : 1610196687798,
       "creator" : "admin",
       "lastModifier" : "admin",
       "lastRev" : "0",
-      "uuid" : "117f82ae-e60e-490b-bdaf-ff83e9787671",
+      "uuid" : "d525200b-7ad8-48ce-829d-65e5d8166f21",
       "valid" : true,
       "metadata" : {
         "labels" : [ ]
@@ -1631,9 +1840,9 @@
     },
     "valid" : true,
     "issues" : {
-      "pipelineIssues" : [ ],
       "stageIssues" : { },
-      "issueCount" : 0
+      "issueCount" : 0,
+      "pipelineIssues" : [ ]
     },
     "previewable" : true
   },

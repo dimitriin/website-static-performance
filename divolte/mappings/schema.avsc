@@ -10,7 +10,7 @@
         { "name": "clientTimestamp",         "type": "long" },
         { "name": "remoteHost",              "type": "string" },
         { "name": "referer",                 "type": ["null", "string"], "default": null },
-        { "name": "location",                "type": "string },
+        { "name": "location",                "type": "string" },
         { "name": "locationScheme",          "type": "string" },
         { "name": "locationHost",            "type": "string" },
         { "name": "locationPort",            "type": ["null", "int"],    "default": null },
