@@ -10,12 +10,16 @@
 </head>
 
 <body>
-
-<div class="container">
-    <img src="https://wl-adme.cf.tsp.li/resize/1200x630/jpg/1d1/ba4/7748055c768f624d69f1578428.jpg">
-</div>
-
 <script src="//localhost:8290/divolte.js" defer async></script>
+<script src="//localhost:63342/website-static-performance/web/faker.js"></script>
+<script>
+    for(i = 0 ; i < 10; i++) {
+        var img = new Image(400, 400);
+        img.src = faker.image.image();
+        console.log(img);
+        document.body.appendChild(img);
+    }
+</script>
 <script src="//localhost:63342/website-static-performance/web/resource-performance.js" defer async></script>
 
 </body>

@@ -235,3 +235,9 @@ services:
       context: "./freegeoip-proxy"
     ports:
       - "8080:80"
+
+  resource-api:
+    build:
+      context: "./resource-api"
+    ports:
+      - "8090:8090"
